@@ -18,9 +18,11 @@
 -->
 <div class="container">
   <div class="waves-container">
-    <wave *ngFor="let number of wavesNumber" [height]="number*30+150" [isOdd]="number%2==0" class="wave top"></wave>
+    <wave *ngFor="let number of wavesNumber" [height]="windowHeight - 100*number" [isOdd]="number%2==0" class="wave top"
+      [id]="'down'+number"></wave>
   </div>
   <div class="waves-container">
-    <wave *ngFor="let number of wavesNumber" [height]="number*35+150" [isOdd]="number%2==0" class="wave bottom" [isbottom]="true"></wave>
+    <wave *ngFor="let number of wavesNumber" [height]="windowHeight - 100*number" [isOdd]="number%2==1"
+      class="wave bottom" [isbottom]="true" [id]="'up'+number"></wave>
   </div>
 </div>

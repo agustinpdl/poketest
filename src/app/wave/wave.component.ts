@@ -8,6 +8,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
 export class WaveComponent {
   @Input() public isOdd: boolean = true;
   @Input() public isbottom: boolean = false;
+  @Input() public id: string = '';
 
   @Input() public height: number = 10;
 

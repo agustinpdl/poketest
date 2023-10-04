@@ -1,3 +1,7 @@
+$transparency: 0.1;
+$light: 50%;
+$blur: 4px;
+
 .container {
     height: 100vh;
     width: 100vw;
@@ -10,15 +14,18 @@
 .wave {
     position: absolute;
     width: 120%;
-    
+
 }
-.top{
+
+.top {
     top: 0px;
     left: 0px;
 }
-.bottom{
+
+.bottom {
     bottom: 0px;
 }
+
 .waves-container {
     position: relative;
     flex-grow: 1;
@@ -26,4 +33,107 @@
 
 .white-block {
     height: 50px;
+}
+
+::ng-deep {
+
+    .wave-container {
+        display: flex;
+        flex-direction: column;
+        width: 150%;
+
+        .square {
+            flex-grow: 1;
+            animation: 8s linear 0s infinite background-color-transition;
+        }
+
+        pattern {
+            animation: 8s linear 0s infinite color-transition;
+        }
+
+        -webkit-filter: blur($blur);
+        -moz-filter: blur($blur);
+        -o-filter: blur($blur);
+        -ms-filter: blur($blur);
+    }
+
+    .turn-left {
+
+        animation: 5s linear 0s infinite translation-left;
+    }
+
+    .turn-right {
+
+        animation: 5s linear 0s infinite translation-right;
+    }
+}
+
+@keyframes color-transition {
+    0% {
+        fill: hsla(0, 100%, $light, $transparency);
+    }
+
+    25% {
+        fill: hsla(90, 100%, $light, $transparency)
+    }
+
+    50% {
+        fill: hsla(180, 100%, $light, $transparency);
+    }
+
+    75% {
+        fill: hsla(270, 100%, $light, $transparency);
+    }
+
+    100% {
+        fill: hsla(360, 100%, $light, $transparency);
+    }
+}
+@keyframes background-color-transition {
+    0% {
+        background-color: hsla(0, 100%, $light, $transparency);
+    }
+
+    25% {
+        background-color: hsla(90, 100%, $light, $transparency)
+    }
+
+    50% {
+        background-color: hsla(180, 100%, $light, $transparency);
+    }
+
+    75% {
+        background-color: hsla(270, 100%, $light, $transparency);
+    }
+
+    100% {
+        background-color: hsla(360, 100%, $light, $transparency);
+    }
+}
+
+///////////////////
+.bottom {
+    rotate: 180deg;
+}
+
+@keyframes translation-left {
+    0% {
+        translate: -240px 0px;
+    }
+
+    100% {
+        translate: 0px 0px;
+    }
+
+}
+
+@keyframes translation-right {
+    0% {
+        translate: 0px 0px;
+    }
+
+    100% {
+        translate: -240px;
+    }
+
 }
