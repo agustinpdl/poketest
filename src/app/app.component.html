@@ -1,0 +1,26 @@
+<!-- 
+  <div class="layer" *ngFor="let number of [0,1,2,3,4,5,6,7]" [style.height.px]="number * 40"
+    [class.turn-left]="number%2==1" [class.turn-right]="number%2==0">
+    <div class="wave-container">
+      <div class="square"></div>
+      <ng-container *ngIf="false; else pattern"></ng-container>
+    </div>
+  </div>
+</div>
+<div class="white-block"></div>
+<div class="layer" *ngFor="let number of [0,1,2,3,4,5,6,7]" [style.height.px]="number * 40"
+  [class.turn-left]="number%2==1" [class.turn-right]="number%2==0">
+  <div class="wave-container">
+    <div class="square"></div>
+    <ng-container *ngIf="false; else pattern"></ng-container>
+  </div>
+</div>
+-->
+<div class="container">
+  <div class="waves-container">
+    <wave *ngFor="let number of wavesNumber" [height]="number*30+150" [isOdd]="number%2==0" class="wave top"></wave>
+  </div>
+  <div class="waves-container">
+    <wave *ngFor="let number of wavesNumber" [height]="number*35+150" [isOdd]="number%2==0" class="wave bottom" [isbottom]="true"></wave>
+  </div>
+</div>
