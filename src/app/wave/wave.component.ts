@@ -1,16 +1,18 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'wave',
   templateUrl: './wave.component.html',
   styleUrls: ['./wave.component.scss']
 })
-export class WaveComponent {
+export class WaveComponent implements OnChanges {
+
   @Input() public isOdd: boolean = true;
-  @Input() public isbottom: boolean = false;
   @Input() public id: string = '';
 
-  @Input() public height: number = 10;
-
+  @Input() public waveHeight: number = 10;
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
+  }
 
 }

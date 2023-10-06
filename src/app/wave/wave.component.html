@@ -1,13 +1,14 @@
-<div [style.height.px]="height" class="wave-container" [class.turn-left]="isOdd==isbottom" [class.turn-right]="isOdd!=isbottom">
-    
-    <svg width="120%" [attr.height]="!isbottom?height:450" xmlns="http://www.w3.org/2000/svg" [class.bottom]="isbottom">
+<div [style.height.px]="waveHeight" class="wave-container" [class.turn-left]="isOdd"
+    [class.turn-right]="!isOdd">
+
+     <svg width="150%" height="100%" xmlns="http://www.w3.org/2000/svg">
         <defs>
-            <pattern id="miPatron{{id}}" width="240" [attr.y]=" height-450"  [attr.height]="450" patternUnits="userSpaceOnUse" >
-                <path translate=""
-                    d="M 0 0 V 400 C 20 440 20 440 40 400 C 60 360 60 360 80 400 C 94 428 102 428 120 400 C 138 370 146 370 160 400 C 170 420 190 420 200 400 C 210 378 228 378 240 400 V 0">
+            <pattern id="miPatron{{id}}" width="480" [attr.y]="waveHeight" height="860" patternUnits="userSpaceOnUse">
+                <path
+                    d="M 0 0 v 800 c 40 80 40 80 80 0 s 40 -80 80 0 c 28 56 44 56 80 0 c 36 -60 48 -60 80 0 c 20 40 60 40 80 0 c 20 -44 56 -44 80 0 V 0">
                 </path>
             </pattern>
         </defs>
-        <rect width="120%" [attr.height]="!isbottom?height:450"  [attr.fill]="'url(#miPatron'+id+')' "></rect>
+        <rect width="100%" [attr.height]="waveHeight" [attr.fill]="'url(#miPatron'+id+')' "></rect>
     </svg>
 </div>

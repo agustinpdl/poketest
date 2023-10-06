@@ -1,6 +1,6 @@
-$transparency: 0.1;
-$light: 50%;
-$blur: 4px;
+$transparency: 0.4;
+$light: 60%;
+$blur: 10px;
 
 .container {
     height: 100vh;
@@ -9,8 +9,13 @@ $blur: 4px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    -webkit-filter: blur($blur);
 }
-
+#control-height {
+    height: 100vh;
+    width: 0;
+    position: absolute;
+}
 .wave {
     position: absolute;
     width: 120%;
@@ -42,19 +47,15 @@ $blur: 4px;
         flex-direction: column;
         width: 150%;
 
-        .square {
-            flex-grow: 1;
-            animation: 8s linear 0s infinite background-color-transition;
-        }
-
         pattern {
             animation: 8s linear 0s infinite color-transition;
         }
 
-        -webkit-filter: blur($blur);
-        -moz-filter: blur($blur);
-        -o-filter: blur($blur);
-        -ms-filter: blur($blur);
+        svg {
+            display: block;
+        }
+
+        
     }
 
     .turn-left {
@@ -89,6 +90,7 @@ $blur: 4px;
         fill: hsla(360, 100%, $light, $transparency);
     }
 }
+
 @keyframes background-color-transition {
     0% {
         background-color: hsla(0, 100%, $light, $transparency);
@@ -118,7 +120,7 @@ $blur: 4px;
 
 @keyframes translation-left {
     0% {
-        translate: -240px 0px;
+        translate: -480px 0px;
     }
 
     100% {
@@ -133,7 +135,7 @@ $blur: 4px;
     }
 
     100% {
-        translate: -240px;
+        translate: -480px;
     }
 
 }
